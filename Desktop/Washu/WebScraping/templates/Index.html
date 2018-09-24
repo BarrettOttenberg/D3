@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Mission to Mars</title>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    
+
+    <link rel="stylesheet" href="../static/assets.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="text-center">
+
+            <h1><a href="/" class="mission">Mission to Mars </a>  </h1>
+
+            <a href="/scrape" class="btn btn-primary" role="button">Scrape New Data</a>
+
+        </div>
+
+    </header>
+
+    
+
+
+
+    <!-- Latest Mars News -->
+
+    <div class="container-fluid" style="width:100%">
+
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <h2>Latest Mars News</h2>
+
+                <h3>{{ mars.News_Title }}</h3>
+
+                <p>{{ mars.Paragraph_Text }}</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Featured Mars Image / Current Weather on Mars / Mars Facts -->
+
+    <div class="row">
+
+        <div class="col-md-8">
+
+            <div class="panel">
+
+                <div class="panel-body">
+
+                    <h2>Featured Mars Image</h2>
+
+                    <img src=  {{ mars.Most_Recent_Mars_Image }} alt="" class="featured" >
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="panel border">
+
+                <div class="panel-body">
+
+                    <h2>Current Weather on Mars</h2>
+
+                    <p>{{ mars.Mars_Weather }}</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+                   
+
+        
+
+        <div class="col-md-1"></div>
+
+        <div>
+
+            <table>
+
+                {{mars.Mars_Facts | safe}}
+
+            </table>
+
+        </div>
+
+    </div>
+
+    
+
+    <!-- Mars Hemispheres -->
+
+    <h2 class="hemispheres">Mars Hemispheres</h2>
+
+    <div class="row" style="padding-bottom:20px">
+
+        <div class="col-sm-1"></div>
+
+        <div class="col-sm-5 border">
+
+            {% if (mars) %}
+
+                <img src={{ mars.Mars_hem[0]["Image_Url"] }} alt="" style="width:100%">
+
+                <p class="caption">{{ mars.Mars_hem[0]["Title"] }}</p>
+
+            {% endif %}
+
+        </div>
+
+        <div class="col-sm-5 border" >
+
+            {% if (mars) %}
+
+                <img src={{ mars.Mars_hem[1]["Image_Url"] }} alt="" style="width:100%">
+
+                <p class="caption">{{ mars.Mars_hem[1]["Title"] }}</p>
+
+                {% endif %}
+
+        </div>
+
+        <div class="col-sm-1"></div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-1"></div>
+
+        <div class="col-sm-5 border" >
+
+            {% if (mars) %}
+
+                <img src={{ mars.Mars_hem[2]["Image_Url"] }} alt="" style="width:100%">
+
+                <p class="caption">{{ mars.Mars_hem[2]["Title"] }}</p>
+
+            {% endif %}
+
+        </div>
+
+        <div class="col-sm-5 border" >
+
+            {% if (mars) %}
+
+                <img src={{ mars.Mars_hem[3]["Image_Url"] }} alt="" style="width:100%">
+
+                <p class="caption">{{ mars.Mars_hem[3]["Title"] }}</p>
+
+            {% endif %}
+
+        </div>
+
+        <div class="col-sm-1"></div>
+
+    </div>
+
+ 
+
+
+
+</body>
+
+</html>
