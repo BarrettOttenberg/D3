@@ -1,0 +1,51 @@
+h1 {
+
+    color: green;
+
+    text-align: center;
+
+}
+
+
+
+h2 {
+
+    color: teal;
+
+}
+
+
+
+form {
+
+    color: white;
+
+}
+
+
+
+.right {
+
+    float: right;
+
+    padding-left: 5px;
+
+    padding-bottom: 5px;
+
+}
+
+
+
+input {
+
+    color: black;
+
+}
+
+
+
+table {
+
+    background-color: white;
+
+}
